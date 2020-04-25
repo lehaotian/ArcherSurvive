@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RockerSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="400" height="400">
+	<e:Image width="400" height="400" x="0" y="0" source="Glow_png"/>
+	<e:Image id="center" width="200" height="200" x="200" y="200" anchorOffsetX="100" anchorOffsetY="100" source="Glow_png"/>
+</e:Skin>

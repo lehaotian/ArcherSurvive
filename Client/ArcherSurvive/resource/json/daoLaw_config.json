@@ -1,0 +1,7 @@
+{
+"100001":{"id":100001,"growUp":"6_20#9_30#5_10","advanceGrowUp":"6_30#9_40#5_15","allBaseGrowUp":10,"accordSkill":0,"passiveSkill":0},
+"100002":{"id":100002,"growUp":"6_20#9_30#5_11","advanceGrowUp":"6_30#9_40#5_16","allBaseGrowUp":11,"accordSkill":0,"passiveSkill":0},
+"100003":{"id":100003,"growUp":"6_20#9_30#5_12","advanceGrowUp":"6_30#9_40#5_17","allBaseGrowUp":12,"accordSkill":0,"passiveSkill":0},
+"100004":{"id":100004,"growUp":"6_20#9_30#5_13","advanceGrowUp":"6_30#9_40#5_18","allBaseGrowUp":13,"accordSkill":0,"passiveSkill":0},
+"100005":{"id":100005,"growUp":"6_20#9_30#5_14","advanceGrowUp":"6_30#9_40#5_19","allBaseGrowUp":14,"accordSkill":0,"passiveSkill":0}
+}

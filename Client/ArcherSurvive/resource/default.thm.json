@@ -1,0 +1,16 @@
+{
+	"skins": {},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/skin/bag/BagMainPopSkin.exml",
+		"resource/skin/bag/render/ItemRenderSkin.exml",
+		"resource/skin/touch/Rocker.exml",
+		"resource/skin/battle/BattleMainSkin.exml",
+		"resource/skin/battle/render/BattleGridRenderSkin.exml",
+		"resource/skin/login/LoginTextInput.exml",
+		"resource/skin/login/LoginSkin.exml",
+		"resource/skin/main/MainSkin.exml",
+		"resource/skin/touch/TouchSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}

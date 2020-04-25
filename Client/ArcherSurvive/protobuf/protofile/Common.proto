@@ -1,0 +1,71 @@
+package luck.protobuf;  
+option java_package = "com.luck.game.protobuf";  
+option java_outer_classname = "CommonProto";  
+
+//玩家
+message PlayerPB{
+	required PlayerBasePB playerBasePB = 1;//玩家基础属性
+	
+}
+
+//玩家基础属性
+message PlayerBasePB{  
+    required int64 playerId = 1;  //玩家id
+    required string name = 2;  //玩家名字
+    required int64 gold = 3;  //玩家金币
+    required int32 lv = 4;  //等级
+	required int32 exp = 5;  //经验
+}
+
+//属性通用INT类
+message PropertyIntPB{
+	required int32 type = 1;
+	required int32 value = 2;
+}
+
+//属性通用FLOAT类
+message PropertyFloatPB{
+	required int32 type = 1;
+	required float value = 2;
+}
+
+//道具
+message PropPB{
+	required int32 id = 1;
+	required int32 num = 2;
+}
+//材料
+message MaterialsPB{
+	required int32 id = 1;
+	required int32 num = 2;
+}
+//物品背包
+message ItemBagPB{
+	repeated PropPB propList=1;//道具列表
+	repeated MaterialsPB materialsList=2;//材料列表
+}
+
+//战斗操作
+message OperationPB{
+	required int64 pid = 1;
+	required int32 operationType = 2;
+	optional VectorPB rocker = 3;
+}
+//摇杆儿向量
+message VectorPB{
+	required float X=1;
+	required float Y=2;
+}
+//房间
+message RoomPB{
+   repeated int64 playerIdList = 1;  //玩家id   
+   required int64 roomId = 2;    //房间id
+   required string roomName = 3;    //房间名
+   required int32 seed = 4; //随机种子
+}
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BattleGridRenderSkin" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="grid_1012_png"/>
+</e:Skin>

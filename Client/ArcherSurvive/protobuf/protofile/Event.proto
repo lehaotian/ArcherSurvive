@@ -1,0 +1,16 @@
+package luck.protobuf;  
+option java_package = "com.luck.game.protobuf"; 
+option java_outer_classname = "EventProto";  
+
+enum EnumType {
+    LOGIN_REQ = 1001;//登录
+	LOGIN_RESP = 1002;
+	CREATE_PLAYER_REQ = 1003;//创建角色
+	CREATE_PLAYER_RESP = 1004;
+	HEARTBEAT_REQ = 1005;//心跳
+	HEARTBEAT_RESP = 1006;
+	PING_REQ=1007;//延迟
+	PING_RESP=1008;
+	CREATE_ACCOUNT_REQ = 1009;//创建账号
+	CREATE_ACCOUNT_RESP = 1010;
+}

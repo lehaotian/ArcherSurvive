@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TouchSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
+	<ns1:Rocker id="rocker" skinName="RockerSkin" left="0" bottom="0"/>
+</e:Skin>
