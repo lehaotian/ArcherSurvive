@@ -1,8 +1,11 @@
+/** 
+ * webSoket网络管理器
+ */
 class NetManager {
 
     private static _instance:NetManager;
 
-    public static instance():NetManager{
+    public static get instance():NetManager{
         if(NetManager._instance==null){
             NetManager._instance = new NetManager();
         }
@@ -17,16 +20,9 @@ class NetManager {
     public init(){
         this.timer();
     }
-    
-
     public timer(){
-        setTimeout(this._heartBeat,5000);
+        setTimeout(this.heartBeat,5000);
     }
-
-    private _heartBeat(){
-        NetManager.instance().heartBeat();
-    }
-
     public heartBeat(){
         try {
             console.log("heartBeat");
@@ -53,6 +49,11 @@ class NetManager {
         }finally{
             this.timer();
         }
+    }
+    public sendHeartBeat(connectName:string){
+        // let heartBeatReq:luck.protobuf.HeartBeatReq = luck.protobuf.HeartBeatReq.create();
+        // let sendByte:Uint8Array = luck.protobuf.HeartBeatReq.encode(heartBeatReq).finish();
+        // NetManager.instance.sendMsg(connectName,luck.protobuf.EnumType.HEARTBEATREQ.valueOf(),sendByte);
     }
 
     public connect(ip: string,port: number,connectName: string){
@@ -93,31 +94,9 @@ class NetManager {
 
     private onSocketOpen(connectName:string){
         console.log("与 "+connectName+" 连接成功!!");
-        NetManager.instance().testBindEvent();
-        NetManager.instance().sendTest();
     }
 
-    public sendHeartBeat(connectName:string){
-        // let heartBeatReq:luck.protobuf.HeartBeatReq = luck.protobuf.HeartBeatReq.create();
-        // let sendByte:Uint8Array = luck.protobuf.HeartBeatReq.encode(heartBeatReq).finish();
-        // NetManager.instance().sendMsg(connectName,luck.protobuf.EnumType.HEARTBEATREQ.valueOf(),sendByte);
-    }
-
-    public sendTest(){
-        // let logInReq:luck.protobuf.LogInReq = luck.protobuf.LogInReq.create();
-        // logInReq.LogInKey = "abc";
-        // let sendByte:Uint8Array = luck.protobuf.LogInReq.encode(logInReq).finish();
-
-        // NetManager.instance().sendMsg("logic",luck.protobuf.EnumType.LOGINREQ.valueOf(),sendByte);
-    }
-
-    public testBindEvent(){
-        // NetManager.instance().bindEvent("logic",luck.protobuf.EnumType.LOGINRESP.valueOf(),this.loginResp,luck.protobuf.LogInResp);
-    }
-
-    // private loginResp(resp:luck.protobuf.LogInResp){
-    //     console.log(" 登录成功!!  "+resp.result);
-    // }
+    
 
     private onSocketClose(connectName:string,e: egret.Event){
         
@@ -136,7 +115,7 @@ class NetManager {
         handlerMap[eventId] =handler;
         this.eventClzMap[eventId] =clz;
     }
-
+    /** 发送消息 */
     public sendMsg(connectName: string,msgId :number,pb){
         let connect:MyWebSocket = this.netConnectNameMap[connectName];
         if(connect==null){
@@ -145,7 +124,4 @@ class NetManager {
         }
         connect.sendMsg(msgId,pb);
     }
-
-
-
 }

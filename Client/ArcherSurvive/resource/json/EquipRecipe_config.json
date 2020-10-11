@@ -1,4 +1,0 @@
-{
-"1":{"recipeId":1,"starLv":1,"itemId":50001,"powerNum":1000,"mainMater":30001,"assistMater":"4_3","targetId":"50001_1200#50002_1400#50003_1700","des":"炼制一星灵剑的配方"},
-"2":{"recipeId":2,"starLv":2,"itemId":50004,"powerNum":2000,"mainMater":30002,"assistMater":"4_3","targetId":"50004_2200#50005_2400#50006_2700","des":"炼制二星灵剑的配方"}
-}

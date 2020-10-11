@@ -1,8 +1,0 @@
-{
-    "isDebug":"false",
-    "logLevel":1,
-    "accip":"127.0.0.1",
-    "accport":8083,
-    "logicip":"127.0.0.1",
-    "logicport":8082
-    }

@@ -77,7 +77,7 @@ class MyWebSocket {
         this.socket.close();
     }
 
-    private onReceiveMessage(e: egret.Event){
+    private onReceiveMessage(event: egret.Event){
         console.log("收到消息");
         let byte:egret.ByteArray = new egret.ByteArray();
         this.socket.readBytes(byte);

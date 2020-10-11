@@ -6,12 +6,12 @@ var Random = (function () {
     function Random() {
     }
     /** 根据种子生成随机数 */
-    Random.prototype.randBySeed = function (seed) {
+    Random.randBySeed = function (seed) {
         seed = (seed * 9301 + 49297) % 233280;
         return seed / 233280;
     };
     /** 根据当前时间生成随机数 */
-    Random.prototype.randByTime = function () {
+    Random.randByTime = function () {
         return this.randBySeed(new Date().getMilliseconds());
     };
     return Random;

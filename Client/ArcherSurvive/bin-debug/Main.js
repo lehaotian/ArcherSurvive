@@ -105,12 +105,8 @@ var Main = (function (_super) {
                     case 1:
                         _a.sent();
                         this.createGameScene();
-                        // const result = await RES.getResAsync("description_json")
-                        // this.startAnimation(result);
                         return [4 /*yield*/, platform.login()];
                     case 2:
-                        // const result = await RES.getResAsync("description_json")
-                        // this.startAnimation(result);
                         _a.sent();
                         return [4 /*yield*/, platform.getUserInfo()];
                     case 3:
@@ -136,23 +132,23 @@ var Main = (function (_super) {
                         return [4 /*yield*/, this.loadTheme()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("main", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("common", 0, loadingView)];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("common", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("main", 1, loadingView)];
                     case 4:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("dragonBones", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("dragonBones", 2, loadingView)];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("json", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("json", 3, loadingView)];
                     case 6:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("map", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("map", 4, loadingView)];
                     case 7:
                         _a.sent();
                         // await RES.loadGroup("sound", 0, loadingView);
-                        return [4 /*yield*/, RES.loadGroup("login", 0, loadingView)];
+                        return [4 /*yield*/, RES.loadGroup("login", 5, loadingView)];
                     case 8:
                         // await RES.loadGroup("sound", 0, loadingView);
                         _a.sent();
@@ -186,43 +182,6 @@ var Main = (function (_super) {
         this.stage.frameRate = 144;
         LayerManager.Instance.init(this.stage);
         LayerManager.Instance.openView(LoginView, 1, 2, 3);
-    };
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    Main.prototype.createBitmapByName = function (name) {
-        var result = new egret.Bitmap();
-        var texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
-    };
-    /**
-     * 描述文件加载成功，开始播放动画
-     * Description file loading is successful, start to play the animation
-     */
-    Main.prototype.startAnimation = function (result) {
-        var _this = this;
-        var parser = new egret.HtmlTextParser();
-        var textflowArr = result.map(function (text) { return parser.parse(text); });
-        var textfield = this.textfield;
-        var count = -1;
-        var change = function () {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            var textFlow = textflowArr[count];
-            // 切换描述内容
-            // Switch to described content
-            textfield.textFlow = textFlow;
-            var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
-            tw.call(change, _this);
-        };
-        change();
     };
     return Main;
 }(eui.UILayer));

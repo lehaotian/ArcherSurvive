@@ -5,7 +5,7 @@
 			"name": "common"
 		},
 		{
-			"keys": "Dictionary_config_json,EquipRecipe_config_json,HeroPos_config_json,IpPort_config_json,Item_config_json,PlayerUpGrade_config_json,Shop_config_json,daoLaw_config_json,effects_config_json,heroAnim_config_json,includ_json",
+			"keys": "config_info_json,dictionary_info_json,role_action_json,role_attributes_json,role_info_json",
 			"name": "json"
 		},
 		{
@@ -35,10 +35,6 @@
 		{
 			"keys": "-_png,__png,+_png,Active Button_png,Character Example_png,Chat Icon_png,Drop All_png,Glow_png,Health Bar_png,Hover Button_png,Hover_png,Hover-1_png,Icon Container_png,Loot All_png,Mana Bar_png,Mana Bar2_png,Mini Window Disc_png,Normal State_png,Normal_png,Normal-1_png,Scroller_png,Section Bar_png,Seperate Action Button_png,Shape 2_png,Shape 11_png,Shape 15_png,Skull Icon_png,Spell ToolTip_png,The Window_png,Unit Counter_png,Up Arrow_png,Window Disc_png,组 1_png,组 2_png,bg_jpg",
 			"name": "main"
-		},
-		{
-			"keys": "bosspit_flag_1_tex_json,bosspit_flag_1_tex_png,bosspit_flag_1_ske_json,bosspit_giant_plant_rootball_tex_json,bosspit_giant_plant_rootball_tex_png,bosspit_giant_plant_rootball_ske_json,bosspit_giant_plant_root_tex_json,bosspit_giant_plant_root_tex_png,bosspit_giant_plant_root_ske_json,bosspit_gold_colossus_tex_json,bosspit_gold_colossus_tex_png,bosspit_gold_colossus_ske_json,hero_aquatic_man_tex_json,hero_aquatic_man_tex_png,hero_aquatic_man_ske_json,hero_bardbarian_tex_json,hero_bardbarian_tex_png,hero_bardbarian_ske_json",
-			"name": "preload"
 		}
 	],
 	"resources": [
@@ -81,61 +77,6 @@
 			"url": "image/map/bbg_snow_bone.jpg",
 			"type": "image",
 			"name": "bbg_snow_bone_jpg"
-		},
-		{
-			"url": "json/HeroPos_config.json",
-			"type": "json",
-			"name": "HeroPos_config_json"
-		},
-		{
-			"url": "json/Shop_config.json",
-			"type": "json",
-			"name": "Shop_config_json"
-		},
-		{
-			"url": "json/EquipRecipe_config.json",
-			"type": "json",
-			"name": "EquipRecipe_config_json"
-		},
-		{
-			"url": "json/Dictionary_config.json",
-			"type": "json",
-			"name": "Dictionary_config_json"
-		},
-		{
-			"url": "json/PlayerUpGrade_config.json",
-			"type": "json",
-			"name": "PlayerUpGrade_config_json"
-		},
-		{
-			"url": "json/daoLaw_config.json",
-			"type": "json",
-			"name": "daoLaw_config_json"
-		},
-		{
-			"url": "json/IpPort_config.json",
-			"type": "json",
-			"name": "IpPort_config_json"
-		},
-		{
-			"url": "json/effects_config.json",
-			"type": "json",
-			"name": "effects_config_json"
-		},
-		{
-			"url": "json/heroAnim_config.json",
-			"type": "json",
-			"name": "heroAnim_config_json"
-		},
-		{
-			"url": "json/includ.json",
-			"type": "json",
-			"name": "includ_json"
-		},
-		{
-			"url": "json/Item_config.json",
-			"type": "json",
-			"name": "Item_config_json"
 		},
 		{
 			"url": "effect/e2_tex.png",
@@ -1860,79 +1801,104 @@
 			"name": "bosspit_evil_wizard_ske_json"
 		},
 		{
-			"name": "bosspit_giant_plant_rootball_tex_json",
+			"url": "dragonBones/bosspit_giant_plant_rootball_tex.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_giant_plant_rootball_tex.json"
+			"name": "bosspit_giant_plant_rootball_tex_json"
 		},
 		{
-			"name": "bosspit_giant_plant_rootball_tex_png",
+			"url": "dragonBones/bosspit_giant_plant_rootball_tex.png",
 			"type": "image",
-			"url": "dragonBones/bosspit_giant_plant_rootball_tex.png"
+			"name": "bosspit_giant_plant_rootball_tex_png"
 		},
 		{
-			"name": "bosspit_giant_plant_rootball_ske_json",
+			"url": "dragonBones/bosspit_giant_plant_rootball_ske.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_giant_plant_rootball_ske.json"
+			"name": "bosspit_giant_plant_rootball_ske_json"
 		},
 		{
-			"name": "bosspit_giant_plant_root_tex_json",
+			"url": "dragonBones/bosspit_giant_plant_root_tex.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_giant_plant_root_tex.json"
+			"name": "bosspit_giant_plant_root_tex_json"
 		},
 		{
-			"name": "bosspit_giant_plant_root_tex_png",
+			"url": "dragonBones/bosspit_giant_plant_root_tex.png",
 			"type": "image",
-			"url": "dragonBones/bosspit_giant_plant_root_tex.png"
+			"name": "bosspit_giant_plant_root_tex_png"
 		},
 		{
-			"name": "bosspit_giant_plant_root_ske_json",
+			"url": "dragonBones/bosspit_giant_plant_root_ske.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_giant_plant_root_ske.json"
+			"name": "bosspit_giant_plant_root_ske_json"
 		},
 		{
-			"name": "bosspit_gold_colossus_tex_json",
+			"url": "dragonBones/bosspit_gold_colossus_tex.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_gold_colossus_tex.json"
+			"name": "bosspit_gold_colossus_tex_json"
 		},
 		{
-			"name": "bosspit_gold_colossus_tex_png",
+			"url": "dragonBones/bosspit_gold_colossus_tex.png",
 			"type": "image",
-			"url": "dragonBones/bosspit_gold_colossus_tex.png"
+			"name": "bosspit_gold_colossus_tex_png"
 		},
 		{
-			"name": "bosspit_gold_colossus_ske_json",
+			"url": "dragonBones/bosspit_gold_colossus_ske.json",
 			"type": "json",
-			"url": "dragonBones/bosspit_gold_colossus_ske.json"
+			"name": "bosspit_gold_colossus_ske_json"
 		},
 		{
-			"name": "hero_aquatic_man_tex_json",
+			"url": "dragonBones/hero_aquatic_man_tex.json",
 			"type": "json",
-			"url": "dragonBones/hero_aquatic_man_tex.json"
+			"name": "hero_aquatic_man_tex_json"
 		},
 		{
-			"name": "hero_aquatic_man_tex_png",
+			"url": "dragonBones/hero_aquatic_man_tex.png",
 			"type": "image",
-			"url": "dragonBones/hero_aquatic_man_tex.png"
+			"name": "hero_aquatic_man_tex_png"
 		},
 		{
-			"name": "hero_aquatic_man_ske_json",
+			"url": "dragonBones/hero_aquatic_man_ske.json",
 			"type": "json",
-			"url": "dragonBones/hero_aquatic_man_ske.json"
+			"name": "hero_aquatic_man_ske_json"
 		},
 		{
-			"name": "hero_bardbarian_tex_json",
+			"url": "dragonBones/hero_bardbarian_tex.json",
 			"type": "json",
-			"url": "dragonBones/hero_bardbarian_tex.json"
+			"name": "hero_bardbarian_tex_json"
 		},
 		{
-			"name": "hero_bardbarian_tex_png",
+			"url": "dragonBones/hero_bardbarian_tex.png",
 			"type": "image",
-			"url": "dragonBones/hero_bardbarian_tex.png"
+			"name": "hero_bardbarian_tex_png"
 		},
 		{
-			"name": "hero_bardbarian_ske_json",
+			"url": "dragonBones/hero_bardbarian_ske.json",
 			"type": "json",
-			"url": "dragonBones/hero_bardbarian_ske.json"
+			"name": "hero_bardbarian_ske_json"
+		},
+		{
+			"url": "json/config_info.json",
+			"type": "json",
+			"name": "config_info_json"
+		},
+		{
+			"url": "json/role_attributes.json",
+			"type": "json",
+			"name": "role_attributes_json"
+		},
+		{
+			"url": "json/role_action.json",
+			"type": "json",
+			"name": "role_action_json"
+		},
+		{
+			"url": "json/dictionary_info.json",
+			"type": "json",
+			"name": "dictionary_info_json"
+		},
+		{
+			"url": "json/role_info.json",
+			"type": "json",
+			"name": "role_info_json"
 		}
 	]
 }

@@ -115,18 +115,18 @@ export namespace common {
     function get(file: string): (INamespace | null);
 }
 
-/** Runtime message from/to plain object converters. */
+/** Runtime message from/to plain Object converters. */
 export namespace converter {
 
     /**
-     * Generates a plain object to runtime message converter specific to the specified message type.
+     * Generates a plain Object to runtime message converter specific to the specified message type.
      * @param mtype Message type
      * @returns Codegen instance
      */
     function fromObject(mtype: Type): Codegen;
 
     /**
-     * Generates a runtime message to plain object converter specific to the specified message type.
+     * Generates a runtime message to plain Object converter specific to the specified message type.
      * @param mtype Message type
      * @returns Codegen instance
      */
@@ -153,7 +153,7 @@ export class Enum extends ReflectionObject {
     /**
      * Constructs a new enum instance.
      * @param name Unique name within its namespace
-     * @param [values] Enum values as an object, by name
+     * @param [values] Enum values as an Object, by name
      * @param [options] Declared options
      */
     constructor(name: string, values?: { [k: string]: number }, options?: { [k: string]: any });
@@ -264,7 +264,7 @@ export class Field extends FieldBase {
      * @param [defaultValue] Default value
      * @returns Decorator function
      */
-    public static d<T extends number | number[] | Long | Long[] | string | string[] | boolean | boolean[] | Uint8Array | Uint8Array[] | Buffer | Buffer[]>(fieldId: number, fieldType: ("double" | "float" | "int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "string" | "bool" | "bytes" | object), fieldRule?: ("optional" | "required" | "repeated"), defaultValue?: T): FieldDecorator;
+    public static d<T extends number | number[] | Long | Long[] | string | string[] | boolean | boolean[] | Uint8Array | Uint8Array[] | Buffer | Buffer[]>(fieldId: number, fieldType: ("double" | "float" | "int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "string" | "bool" | "bytes" | Object), fieldRule?: ("optional" | "required" | "repeated"), defaultValue?: T): FieldDecorator;
 
     /**
      * Field decorator (TypeScript).
@@ -383,7 +383,7 @@ export interface IExtensionField extends IField {
  * @param prototype Target prototype
  * @param fieldName Field name
  */
-type FieldDecorator = (prototype: object, fieldName: string) => void;
+type FieldDecorator = (prototype: Object, fieldName: string) => void;
 
 /**
  * A node-style callback as used by {@link load} and {@link Root#load}.
@@ -475,7 +475,7 @@ export class MapField extends FieldBase {
      * @param fieldValueType Field value type
      * @returns Decorator function
      */
-    public static d<T extends { [key: string]: number | Long | string | boolean | Uint8Array | Buffer | number[] | Message<{}> }>(fieldId: number, fieldKeyType: ("int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "bool" | "string"), fieldValueType: ("double" | "float" | "int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "bool" | "string" | "bytes" | object | Constructor<{}>)): FieldDecorator;
+    public static d<T extends { [key: string]: number | Long | string | boolean | Uint8Array | Buffer | number[] | Message<{}> }>(fieldId: number, fieldKeyType: ("int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "bool" | "string"), fieldValueType: ("double" | "float" | "int32" | "uint32" | "sint32" | "fixed32" | "sfixed32" | "int64" | "uint64" | "sint64" | "fixed64" | "sfixed64" | "bool" | "string" | "bytes" | Object | Constructor<{}>)): FieldDecorator;
 }
 
 /** Map field descriptor. */
@@ -493,7 +493,7 @@ export interface IExtensionMapField extends IMapField {
 }
 
 /** Abstract runtime message. */
-export class Message<T extends object> {
+export class Message<T extends Object> {
 
     /**
      * Constructs a new message instance.
@@ -546,29 +546,29 @@ export class Message<T extends object> {
 
     /**
      * Verifies a message of this type.
-     * @param message Plain object to verify
+     * @param message Plain Object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string | null);
 
     /**
-     * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
+     * Creates a new message of this type from a plain Object. Also converts values to their respective internal types.
+     * @param Object Plain Object
      * @returns Message instance
      */
-    public static fromObject<T extends Message<T>>(this: Constructor<T>, object: { [k: string]: any }): T;
+    public static fromObject<T extends Message<T>>(this: Constructor<T>, Object: { [k: string]: any }): T;
 
     /**
-     * Creates a plain object from a message of this type. Also converts values to other types if specified.
+     * Creates a plain Object from a message of this type. Also converts values to other types if specified.
      * @param message Message instance
      * @param [options] Conversion options
-     * @returns Plain object
+     * @returns Plain Object
      */
     public static toObject<T extends Message<T>>(this: Constructor<T>, message: T, options?: IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this message to JSON.
-     * @returns JSON object
+     * @returns JSON Object
      */
     public toJSON(): { [k: string]: any };
 }
@@ -660,16 +660,16 @@ export class Namespace extends NamespaceBase {
     /**
      * Constructs a namespace from JSON.
      * @param name Namespace name
-     * @param json JSON object
+     * @param json JSON Object
      * @returns Created namespace
      * @throws {TypeError} If arguments are invalid
      */
     public static fromJSON(name: string, json: { [k: string]: any }): Namespace;
 
     /**
-     * Converts an array of reflection objects to JSON.
+     * Converts an array of reflection Objects to JSON.
      * @param array Object array
-     * @returns JSON object or `undefined` when array is empty
+     * @returns JSON Object or `undefined` when array is empty
      */
     public static arrayToJSON(array: ReflectionObject[]): ({ [k: string]: any } | undefined);
 
@@ -690,13 +690,13 @@ export class Namespace extends NamespaceBase {
     public static isReservedName(reserved: ((number[] | string) [] | undefined), name: string): boolean;
 }
 
-/** Base class of all reflection objects containing nested objects. This is not an actual class but here for the sake of having consistent type definitions. */
+/** Base class of all reflection Objects containing nested Objects. This is not an actual class but here for the sake of having consistent type definitions. */
 export abstract class NamespaceBase extends ReflectionObject {
 
-    /** Nested objects by name. */
+    /** Nested Objects by name. */
     public nested?: { [k: string]: ReflectionObject };
 
-    /** Nested objects of this namespace as an array for iteration. */
+    /** Nested Objects of this namespace as an array for iteration. */
     public readonly nestedArray: ReflectionObject[];
 
     /**
@@ -706,16 +706,16 @@ export abstract class NamespaceBase extends ReflectionObject {
     public toJSON(): INamespace;
 
     /**
-     * Adds nested objects to this namespace from nested object descriptors.
-     * @param nestedJson Any nested object descriptors
+     * Adds nested Objects to this namespace from nested Object descriptors.
+     * @param nestedJson Any nested Object descriptors
      * @returns `this`
      */
     public addJSON(nestedJson: { [k: string]: AnyNestedObject }): Namespace;
 
     /**
-     * Gets the nested object of the specified name.
-     * @param name Nested object name
-     * @returns The reflection object or `null` if it doesn't exist
+     * Gets the nested Object of the specified name.
+     * @param name Nested Object name
+     * @returns The reflection Object or `null` if it doesn't exist
      */
     public get(name: string): (ReflectionObject | null);
 
@@ -729,22 +729,22 @@ export abstract class NamespaceBase extends ReflectionObject {
     public getEnum(name: string): { [k: string]: number };
 
     /**
-     * Adds a nested object to this namespace.
-     * @param object Nested object to add
+     * Adds a nested Object to this namespace.
+     * @param Object Nested Object to add
      * @returns `this`
      * @throws {TypeError} If arguments are invalid
-     * @throws {Error} If there is already a nested object with this name
+     * @throws {Error} If there is already a nested Object with this name
      */
-    public add(object: ReflectionObject): Namespace;
+    public add(Object: ReflectionObject): Namespace;
 
     /**
-     * Removes a nested object from this namespace.
-     * @param object Nested object to remove
+     * Removes a nested Object from this namespace.
+     * @param Object Nested Object to remove
      * @returns `this`
      * @throws {TypeError} If arguments are invalid
-     * @throws {Error} If `object` is not a member of this namespace
+     * @throws {Error} If `Object` is not a member of this namespace
      */
-    public remove(object: ReflectionObject): Namespace;
+    public remove(Object: ReflectionObject): Namespace;
 
     /**
      * Defines additial namespaces within this one if not yet existing.
@@ -755,25 +755,25 @@ export abstract class NamespaceBase extends ReflectionObject {
     public define(path: (string | string[]), json?: any): Namespace;
 
     /**
-     * Resolves this namespace's and all its nested objects' type references. Useful to validate a reflection tree, but comes at a cost.
+     * Resolves this namespace's and all its nested Objects' type references. Useful to validate a reflection tree, but comes at a cost.
      * @returns `this`
      */
     public resolveAll(): Namespace;
 
     /**
-     * Recursively looks up the reflection object matching the specified path in the scope of this namespace.
+     * Recursively looks up the reflection Object matching the specified path in the scope of this namespace.
      * @param path Path to look up
      * @param filterTypes Filter types, any combination of the constructors of `protobuf.Type`, `protobuf.Enum`, `protobuf.Service` etc.
      * @param [parentAlreadyChecked=false] If known, whether the parent has already been checked
-     * @returns Looked up object or `null` if none could be found
+     * @returns Looked up Object or `null` if none could be found
      */
     public lookup(path: (string | string[]), filterTypes: (any | any[]), parentAlreadyChecked?: boolean): (ReflectionObject | null);
 
     /**
-     * Looks up the reflection object at the specified path, relative to this namespace.
+     * Looks up the reflection Object at the specified path, relative to this namespace.
      * @param path Path to look up
      * @param [parentAlreadyChecked=false] Whether the parent has already been checked
-     * @returns Looked up object or `null` if none could be found
+     * @returns Looked up Object or `null` if none could be found
      */
     public lookup(path: (string | string[]), parentAlreadyChecked?: boolean): (ReflectionObject | null);
 
@@ -820,17 +820,17 @@ export interface INamespace {
     /** Namespace options */
     options?: { [k: string]: any };
 
-    /** Nested object descriptors */
+    /** Nested Object descriptors */
     nested?: { [k: string]: AnyNestedObject };
 }
 
 /** Any extension field descriptor. */
 type AnyExtensionField = (IExtensionField | IExtensionMapField);
 
-/** Any nested object descriptor. */
+/** Any nested Object descriptor. */
 type AnyNestedObject = (IEnum | IType | IService | AnyExtensionField | INamespace);
 
-/** Base class of all reflection objects. */
+/** Base class of all reflection Objects. */
 export abstract class ReflectionObject {
 
     /** Options. */
@@ -858,25 +858,25 @@ export abstract class ReflectionObject {
     public readonly fullName: string;
 
     /**
-     * Converts this reflection object to its descriptor representation.
+     * Converts this reflection Object to its descriptor representation.
      * @returns Descriptor
      */
     public toJSON(): { [k: string]: any };
 
     /**
-     * Called when this object is added to a parent.
+     * Called when this Object is added to a parent.
      * @param parent Parent added to
      */
     public onAdd(parent: ReflectionObject): void;
 
     /**
-     * Called when this object is removed from a parent.
+     * Called when this Object is removed from a parent.
      * @param parent Parent removed from
      */
     public onRemove(parent: ReflectionObject): void;
 
     /**
-     * Resolves this objects type references.
+     * Resolves this Objects type references.
      * @returns `this`
      */
     public resolve(): ReflectionObject;
@@ -981,17 +981,17 @@ export interface IOneOf {
  * @param prototype Target prototype
  * @param oneofName OneOf name
  */
-type OneOfDecorator = (prototype: object, oneofName: string) => void;
+type OneOfDecorator = (prototype: Object, oneofName: string) => void;
 
 /**
- * Parses the given .proto source and returns an object with the parsed contents.
+ * Parses the given .proto source and returns an Object with the parsed contents.
  * @param source Source contents
  * @param [options] Parse options. Defaults to {@link parse.defaults} when omitted.
  * @returns Parser result
  */
 export function parse(source: string, options?: IParseOptions): IParserResult;
 
-/** Result object returned from {@link parse}. */
+/** Result Object returned from {@link parse}. */
 export interface IParserResult {
 
     /** Package name, if declared */
@@ -1018,7 +1018,7 @@ export interface IParseOptions {
 }
 
 /**
- * Parses the given .proto source and returns an object with the parsed contents.
+ * Parses the given .proto source and returns an Object with the parsed contents.
  * @param source Source contents
  * @param root Root to populate
  * @param [options] Parse options. Defaults to {@link parse.defaults} when omitted.
@@ -1259,7 +1259,7 @@ export namespace rpc {
 
     /**
      * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
-     * @param request Request message or plain object
+     * @param request Request message or plain Object
      * @param [callback] Node-style callback called with the error, if any, and the response message
      * @returns Promise if `callback` has been omitted, otherwise `undefined`
      */
@@ -1290,7 +1290,7 @@ export namespace rpc {
          * @param method Reflected or static method
          * @param requestCtor Request constructor
          * @param responseCtor Response constructor
-         * @param request Request message or plain object
+         * @param request Request message or plain Object
          * @param callback Service callback
          */
         public rpcCall<TReq extends Message<TReq>, TRes extends Message<TRes>>(method: (Method | rpc.ServiceMethod<TReq, TRes>), requestCtor: Constructor<TReq>, responseCtor: Constructor<TRes>, request: (TReq | Properties<TReq>), callback: rpc.ServiceMethodCallback<TRes>): void;
@@ -1402,7 +1402,7 @@ type TokenizerHandleSkip = (expected: string, optional?: boolean) => boolean;
  */
 type TokenizerHandleCmnt = (line?: number) => (string | null);
 
-/** Handle object returned from {@link tokenize}. */
+/** Handle Object returned from {@link tokenize}. */
 export interface ITokenizerHandle {
 
     /** Gets the next token and advances (`null` on eof) */
@@ -1425,7 +1425,7 @@ export interface ITokenizerHandle {
 }
 
 /**
- * Tokenizes the given .proto source and returns an object with useful utility functions.
+ * Tokenizes the given .proto source and returns an Object with useful utility functions.
  * @param source Source contents
  * @returns Tokenizer handle
  */
@@ -1500,22 +1500,22 @@ export class Type extends NamespaceBase {
     public toJSON(): IType;
 
     /**
-     * Adds a nested object to this type.
-     * @param object Nested object to add
+     * Adds a nested Object to this type.
+     * @param Object Nested Object to add
      * @returns `this`
      * @throws {TypeError} If arguments are invalid
-     * @throws {Error} If there is already a nested object with this name or, if a field, when there is already a field with this id
+     * @throws {Error} If there is already a nested Object with this name or, if a field, when there is already a field with this id
      */
-    public add(object: ReflectionObject): Type;
+    public add(Object: ReflectionObject): Type;
 
     /**
-     * Removes a nested object from this type.
-     * @param object Nested object to remove
+     * Removes a nested Object from this type.
+     * @param Object Nested Object to remove
      * @returns `this`
      * @throws {TypeError} If arguments are invalid
-     * @throws {Error} If `object` is not a member of this type
+     * @throws {Error} If `Object` is not a member of this type
      */
-    public remove(object: ReflectionObject): Type;
+    public remove(Object: ReflectionObject): Type;
 
     /**
      * Tests if the specified id is reserved.
@@ -1546,7 +1546,7 @@ export class Type extends NamespaceBase {
 
     /**
      * Encodes a message of this type. Does not implicitly {@link Type#verify|verify} messages.
-     * @param message Message instance or plain object
+     * @param message Message instance or plain Object
      * @param [writer] Writer to encode to
      * @returns writer
      */
@@ -1554,7 +1554,7 @@ export class Type extends NamespaceBase {
 
     /**
      * Encodes a message of this type preceeded by its byte length as a varint. Does not implicitly {@link Type#verify|verify} messages.
-     * @param message Message instance or plain object
+     * @param message Message instance or plain Object
      * @param [writer] Writer to encode to
      * @returns writer
      */
@@ -1581,23 +1581,23 @@ export class Type extends NamespaceBase {
 
     /**
      * Verifies that field values are valid and that required fields are present.
-     * @param message Plain object to verify
+     * @param message Plain Object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public verify(message: { [k: string]: any }): (null | string);
 
     /**
-     * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object to convert
+     * Creates a new message of this type from a plain Object. Also converts values to their respective internal types.
+     * @param Object Plain Object to convert
      * @returns Message instance
      */
-    public fromObject(object: { [k: string]: any }): Message<{}>;
+    public fromObject(Object: { [k: string]: any }): Message<{}>;
 
     /**
-     * Creates a plain object from a message of this type. Also converts values to other types if specified.
+     * Creates a plain Object from a message of this type. Also converts values to other types if specified.
      * @param message Message instance
      * @param [options] Conversion options
-     * @returns Plain object
+     * @returns Plain Object
      */
     public toObject(message: Message<{}>, options?: IConversionOptions): { [k: string]: any };
 
@@ -1652,14 +1652,14 @@ export interface IConversionOptions {
      */
     bytes?: Function;
 
-    /** Also sets default values on the resulting object */
+    /** Also sets default values on the resulting Object */
     defaults?: boolean;
 
     /** Sets empty arrays for missing repeated fields even if `defaults=false` */
     arrays?: boolean;
 
-    /** Sets empty objects for missing map fields even if `defaults=false` */
-    objects?: boolean;
+    /** Sets empty Objects for missing map fields even if `defaults=false` */
+    Objects?: boolean;
 
     /** Includes virtual oneof properties set to the present field's name, if any */
     oneofs?: boolean;
@@ -1890,8 +1890,8 @@ export namespace util {
     /** An immuable empty array. */
     const emptyArray: any[];
 
-    /** An immutable empty object. */
-    const emptyObject: object;
+    /** An immutable empty Object. */
+    const emptyObject: Object;
 
     /** Whether running within node or not. */
     const isNode: boolean;
@@ -1911,28 +1911,28 @@ export namespace util {
     function isString(value: any): boolean;
 
     /**
-     * Tests if the specified value is a non-null object.
+     * Tests if the specified value is a non-null Object.
      * @param value Value to test
-     * @returns `true` if the value is a non-null object
+     * @returns `true` if the value is a non-null Object
      */
     function isObject(value: any): boolean;
 
     /**
      * Checks if a property on a message is considered to be present.
      * This is an alias of {@link util.isSet}.
-     * @param obj Plain object or message instance
+     * @param obj Plain Object or message instance
      * @param prop Property name
      * @returns `true` if considered to be present, otherwise `false`
      */
-    function isset(obj: object, prop: string): boolean;
+    function isset(obj: Object, prop: string): boolean;
 
     /**
      * Checks if a property on a message is considered to be present.
-     * @param obj Plain object or message instance
+     * @param obj Plain Object or message instance
      * @param prop Property name
      * @returns `true` if considered to be present, otherwise `false`
      */
-    function isSet(obj: object, prop: string): boolean;
+    function isSet(obj: Object, prop: string): boolean;
 
     /** Node's Buffer class if available. */
     let Buffer: Constructor<Buffer>;
@@ -1975,11 +1975,11 @@ export namespace util {
     function longFromHash(hash: string, unsigned?: boolean): (Long | number);
 
     /**
-     * Merges the properties of the source object into the destination object.
-     * @param dst Destination object
-     * @param src Source object
+     * Merges the properties of the source Object into the destination Object.
+     * @param dst Destination Object
+     * @param src Source Object
      * @param [ifNotSet=false] Merges only if the key is not already set
-     * @returns Destination object
+     * @returns Destination Object
      */
     function merge(dst: { [k: string]: any }, src: { [k: string]: any }, ifNotSet?: boolean): { [k: string]: any };
 
@@ -2033,8 +2033,8 @@ export namespace util {
      * - Longs become strings
      * - Enums become string keys
      * - Bytes become base64 encoded strings
-     * - (Sub-)Messages become plain objects
-     * - Maps become plain objects with all string keys
+     * - (Sub-)Messages become plain Objects
+     * - Maps become plain Objects with all string keys
      * - Repeated fields become arrays
      * - NaN and Infinity for float and double fields become strings
      *
@@ -2046,16 +2046,16 @@ export namespace util {
     let fs: { [k: string]: any };
 
     /**
-     * Converts an object's values to an array.
-     * @param object Object to convert
+     * Converts an Object's values to an array.
+     * @param Object Object to convert
      * @returns Converted array
      */
-    function toArray(object: { [k: string]: any }): any[];
+    function toArray(Object: { [k: string]: any }): any[];
 
     /**
-     * Converts an array of keys immediately followed by their respective value to an object, omitting undefined values.
+     * Converts an array of keys immediately followed by their respective value to an Object, omitting undefined values.
      * @param array Array to convert
-     * @returns Converted object
+     * @returns Converted Object
      */
     function toObject(array: any[]): { [k: string]: any };
 
@@ -2105,10 +2105,10 @@ export namespace util {
 
     /**
      * Decorator helper for enums (TypeScript).
-     * @param object Enum object
+     * @param Object Enum Object
      * @returns Reflected enum
      */
-    function decorateEnum(object: object): Enum;
+    function decorateEnum(Object: Object): Enum;
 
     /** Decorator root (TypeScript). */
     let decorateRoot: Root;
@@ -2308,7 +2308,7 @@ export namespace util {
      * @param moduleName Module to require
      * @returns Required module if available and not empty, otherwise `null`
      */
-    function inquire(moduleName: string): object;
+    function inquire(moduleName: string): Object;
 
     /** A minimal path module to resolve Unix, Windows and URL paths alike. */
     namespace path {
@@ -2387,27 +2387,27 @@ export function verifier(mtype: Type): Codegen;
 export const wrappers: { [k: string]: IWrapper };
 
 /**
- * From object converter part of an {@link IWrapper}.
- * @param object Plain object
+ * From Object converter part of an {@link IWrapper}.
+ * @param Object Plain Object
  * @returns Message instance
  */
-type WrapperFromObjectConverter = (this: Type, object: { [k: string]: any }) => Message<{}>;
+type WrapperFromObjectConverter = (this: Type, Object: { [k: string]: any }) => Message<{}>;
 
 /**
- * To object converter part of an {@link IWrapper}.
+ * To Object converter part of an {@link IWrapper}.
  * @param message Message instance
  * @param [options] Conversion options
- * @returns Plain object
+ * @returns Plain Object
  */
 type WrapperToObjectConverter = (this: Type, message: Message<{}>, options?: IConversionOptions) => { [k: string]: any };
 
 /** Common type wrapper part of {@link wrappers}. */
 export interface IWrapper {
 
-    /** From object converter */
+    /** From Object converter */
     fromObject?: WrapperFromObjectConverter;
 
-    /** To object converter */
+    /** To Object converter */
     toObject?: WrapperToObjectConverter;
 }
 
@@ -2421,13 +2421,13 @@ export class Writer {
     public len: number;
 
     /** Operations head. */
-    public head: object;
+    public head: Object;
 
     /** Operations tail */
-    public tail: object;
+    public tail: Object;
 
     /** Linked forked states. */
-    public states: (object | null);
+    public states: (Object | null);
 
     /**
      * Creates a new writer.
@@ -2607,7 +2607,7 @@ type asPromiseCallback = (error: (Error | null), ...params: any[]) => void;
 
 /**
  * Appends code to the function's body or finishes generation.
- * @param [formatStringOrScope] Format string or, to finish the function, an object of additional scope variables, if any
+ * @param [formatStringOrScope] Format string or, to finish the function, an Object of additional scope variables, if any
  * @param [formatParams] Format parameters
  * @returns Itself or the generated function if finished
  * @throws {Error} If format parameter counts do not match

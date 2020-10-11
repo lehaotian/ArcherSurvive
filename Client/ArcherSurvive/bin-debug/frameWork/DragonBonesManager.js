@@ -18,15 +18,21 @@ var DragonBonesManager = (function () {
         enumerable: true,
         configurable: true
     });
+    /** 创建龙骨 */
     DragonBonesManager.prototype.createDragonBones = function (name) {
         var dragonbonesData = RES.getRes(name + "_ske_json");
         var textureData = RES.getRes(name + "_tex_json");
         var texture = RES.getRes(name + "_tex_png");
         this.egretFactory.parseDragonBonesData(dragonbonesData);
         this.egretFactory.parseTextureAtlasData(textureData, texture);
+        return this.egretFactory.buildArmatureDisplay(name);
     };
+    /** 得到一个龙骨 */
     DragonBonesManager.prototype.getDragonBones = function (name) {
         var armatureDisplay = this.egretFactory.buildArmatureDisplay(name);
+        if (armatureDisplay == null) {
+            this.createDragonBones(name);
+        }
         return armatureDisplay;
     };
     DragonBonesManager._instance = null;

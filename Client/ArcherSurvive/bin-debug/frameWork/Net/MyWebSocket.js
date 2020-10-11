@@ -53,7 +53,7 @@ var MyWebSocket = (function () {
         this.state = MyWebSocket.CONNECT_BREAK;
         this.socket.close();
     };
-    MyWebSocket.prototype.onReceiveMessage = function (e) {
+    MyWebSocket.prototype.onReceiveMessage = function (event) {
         console.log("收到消息");
         var byte = new egret.ByteArray();
         this.socket.readBytes(byte);

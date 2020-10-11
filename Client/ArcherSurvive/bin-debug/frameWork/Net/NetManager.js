@@ -1,6 +1,9 @@
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
+/**
+ * webSoket网络管理器
+ */
 var NetManager = (function () {
     function NetManager() {
         this.netConnectMap = {};
@@ -8,20 +11,21 @@ var NetManager = (function () {
         this.netHandlerMap = {};
         this.eventClzMap = {};
     }
-    NetManager.instance = function () {
-        if (NetManager._instance == null) {
-            NetManager._instance = new NetManager();
-        }
-        return NetManager._instance;
-    };
+    Object.defineProperty(NetManager, "instance", {
+        get: function () {
+            if (NetManager._instance == null) {
+                NetManager._instance = new NetManager();
+            }
+            return NetManager._instance;
+        },
+        enumerable: true,
+        configurable: true
+    });
     NetManager.prototype.init = function () {
         this.timer();
     };
     NetManager.prototype.timer = function () {
-        setTimeout(this._heartBeat, 5000);
-    };
-    NetManager.prototype._heartBeat = function () {
-        NetManager.instance().heartBeat();
+        setTimeout(this.heartBeat, 5000);
     };
     NetManager.prototype.heartBeat = function () {
         try {
@@ -52,6 +56,11 @@ var NetManager = (function () {
         finally {
             this.timer();
         }
+    };
+    NetManager.prototype.sendHeartBeat = function (connectName) {
+        // let heartBeatReq:luck.protobuf.HeartBeatReq = luck.protobuf.HeartBeatReq.create();
+        // let sendByte:Uint8Array = luck.protobuf.HeartBeatReq.encode(heartBeatReq).finish();
+        // NetManager.instance.sendMsg(connectName,luck.protobuf.EnumType.HEARTBEATREQ.valueOf(),sendByte);
     };
     NetManager.prototype.connect = function (ip, port, connectName) {
         var connect = this.netConnectMap[ip + ":" + port];
@@ -84,26 +93,7 @@ var NetManager = (function () {
     };
     NetManager.prototype.onSocketOpen = function (connectName) {
         console.log("与 " + connectName + " 连接成功!!");
-        NetManager.instance().testBindEvent();
-        NetManager.instance().sendTest();
     };
-    NetManager.prototype.sendHeartBeat = function (connectName) {
-        // let heartBeatReq:luck.protobuf.HeartBeatReq = luck.protobuf.HeartBeatReq.create();
-        // let sendByte:Uint8Array = luck.protobuf.HeartBeatReq.encode(heartBeatReq).finish();
-        // NetManager.instance().sendMsg(connectName,luck.protobuf.EnumType.HEARTBEATREQ.valueOf(),sendByte);
-    };
-    NetManager.prototype.sendTest = function () {
-        // let logInReq:luck.protobuf.LogInReq = luck.protobuf.LogInReq.create();
-        // logInReq.LogInKey = "abc";
-        // let sendByte:Uint8Array = luck.protobuf.LogInReq.encode(logInReq).finish();
-        // NetManager.instance().sendMsg("logic",luck.protobuf.EnumType.LOGINREQ.valueOf(),sendByte);
-    };
-    NetManager.prototype.testBindEvent = function () {
-        // NetManager.instance().bindEvent("logic",luck.protobuf.EnumType.LOGINRESP.valueOf(),this.loginResp,luck.protobuf.LogInResp);
-    };
-    // private loginResp(resp:luck.protobuf.LogInResp){
-    //     console.log(" 登录成功!!  "+resp.result);
-    // }
     NetManager.prototype.onSocketClose = function (connectName, e) {
     };
     NetManager.prototype.onSocketError = function (connectName, e) {
@@ -117,6 +107,7 @@ var NetManager = (function () {
         handlerMap[eventId] = handler;
         this.eventClzMap[eventId] = clz;
     };
+    /** 发送消息 */
     NetManager.prototype.sendMsg = function (connectName, msgId, pb) {
         var connect = this.netConnectNameMap[connectName];
         if (connect == null) {
